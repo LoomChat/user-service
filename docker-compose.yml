@@ -1,0 +1,45 @@
+# This docker compose file is for local setup and testing ONLY!
+
+version: "3.9"
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres-db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: user_service_db
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+
+    volumes:
+      - ./local/data/postgresql/data:/var/lib/postgresql/data
+
+    networks:
+      - backend
+
+    ports:
+      - "${POSTGRES_DB_PORT}:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: unless-stopped
+
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+
+    volumes:
+      - ./local/data/pgadmin/data:/var/lib/pgadmin
+
+    networks:
+      - backend
+
+    ports:
+      - "${PGADMIN_PORT}:80"

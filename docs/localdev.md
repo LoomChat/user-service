@@ -32,6 +32,3 @@ TODO: add instructions for windows
 ## Requirements
 - Docker
 - Docker compose
-
-## LICENSE
-This project has [MIT License](LICENSE)

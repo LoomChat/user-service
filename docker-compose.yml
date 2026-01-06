@@ -18,7 +18,7 @@ services:
       POSTGRES_PASSWORD: root
 
     volumes:
-      - ./local/data/postgresql/data:/var/lib/postgresql/data
+      - ${POSTGRES_DB_VOLUME_HOST_PATH}:/var/lib/postgresql/data
 
     networks:
       - backend
@@ -36,7 +36,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
 
     volumes:
-      - ./local/data/pgadmin/data:/var/lib/pgadmin
+      - ${PGADMIN_VOLUME_HOST_PATH}:/var/lib/pgadmin
 
     networks:
       - backend

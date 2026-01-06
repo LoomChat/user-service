@@ -6,6 +6,8 @@ export SPRING_JPA_HIBERNATE_DLL_AUTO=update
 export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/user_service_db
 export SPRING_DATASOURCE_USERNAME=root
 export SPRING_DATASOURCE_PASSWORD=root
+export POSTGRES_DB_VOLUME_HOST_PATH=./local/data/postgresql/data
+export PGADMIN_VOLUME_HOST_PATH=./local/data/pgadmin/data
 
 set -o xtrace
 mkdir -p local/data/pgadmin/data
